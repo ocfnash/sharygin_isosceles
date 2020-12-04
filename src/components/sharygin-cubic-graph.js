@@ -18,8 +18,15 @@ const getScaledPointsList = pointsDict => {
 };
 
 const getLongLine = (x1, y1, x2, y2) => {
-  const dx = x1 - x2;
-  const dy = y1 - y2;
+  let dx, dy;
+  if (x1 !== x2) {
+    dx = x1 - x2;
+    dy = y1 - y2;
+  }
+  else {
+    dx = 3 * y1 ** 2 + 2 * x1 * y1 + x1 ** 2 + 2 * y1 + x1 - 1
+    dy = -(3 * x1 ** 2 + 2 * x1 * y1 + y1 ** 2 + 2 * x1 + y1 - 1)
+  }
   const r = Math.sqrt(dx*dx + dy*dy);
   const pt = t => plot(x1 + t*dx/r, y1 + t*dy/r);
   return [pt(-diag), pt(diag)];
