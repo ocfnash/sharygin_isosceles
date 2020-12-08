@@ -26,7 +26,7 @@ const getLongLine = (x1, y1, x2, y2) => {
   else {
     const c = 1 - (x1 + y1) * (x1 + y1 + 1)
     dx = c - y1 * (2 * y1 + 1)
-    dy = c + x1 * (2 * x1 + 1)
+    dy = -c + x1 * (2 * x1 + 1)
   }
   const r = Math.sqrt(dx*dx + dy*dy);
   const pt = t => plot(x1 + t*dx/r, y1 + t*dy/r);
