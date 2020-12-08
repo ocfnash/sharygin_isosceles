@@ -19,7 +19,7 @@ const getScaledPointsList = pointsDict => {
 
 const getLongLine = (x1, y1, x2, y2) => {
   let dx, dy;
-  if (x1 !== x2) {
+  if (x1 !== x2 && y1 !== y2) {
     dx = x1 - x2;
     dy = y1 - y2;
   }
