@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SharyginCubicGraph from './sharygin-cubic-graph.js';
 import SITriangleWithSlider from './s-i-triangle-with-slider.js';
 import SITriangle from './s-i-triangle.js';
-import {addTriangles, PointFromIndex} from '../triangle-utils.js';
+import {doubleTriangle, addTriangles, PointFromIndex} from '../triangle-utils.js';
 import '../css/App.css';
 import 'rc-slider/assets/index.css';
 
@@ -10,7 +10,8 @@ const PQRFromPQ = (iP, iQ) => (
   {
     iP,
     iQ,
-    R: addTriangles(PointFromIndex(iP), PointFromIndex(iQ)),
+    R: iP === iQ ? doubleTriangle(PointFromIndex(iP)) : 
+      addTriangles(PointFromIndex(iP), PointFromIndex(iQ)),
   }
 );
 
